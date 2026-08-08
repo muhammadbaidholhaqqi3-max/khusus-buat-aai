@@ -1,0 +1,1616 @@
+<!DCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terakota Cafe</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Poppins', sans-serif; color:#3b3b2f; background:#f4f4ee; }
+
+    :root{
+      --primary:#8a8f5a;
+      --secondary:#d8cbb5;
+      --dark:#4b4f2f;
+      --accent:#a67c52;
+    }
+
+    nav {
+      position: fixed;
+      top:0;
+      width:100%;
+      background: var(--primary);
+      padding:12px;
+      z-index:1000;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .nav-links {
+      display:flex;
+      gap:15px;
+    }
+
+    .nav-links a {
+      color: var(--secondary);
+      text-decoration:none;
+      font-size:14px;
+    }
+
+    .nav-links a:hover { color:white; }
+
+    .menu-toggle {
+      position:absolute;
+      right:20px;
+      font-size:26px;
+      color:white;
+      cursor:pointer;
+    }
+
+    header {
+      height:100vh;
+      background: var(--primary);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      color: var(--secondary);
+      text-align:center;
+    }
+
+    header h1 { font-size:60px; color: var(--dark); }
+
+    section { padding:80px 20px; text-align:center; }
+    h2 { margin-bottom:20px; color: var(--dark); }
+
+    .grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+      gap:20px;
+    }
+
+    .card {
+      padding:20px;
+      border-radius:15px;
+      background:white;
+      box-shadow:0 5px 15px rgba(0,0,0,0.1);
+      border-top:5px solid var(--primary);
+    }
+
+    .gallery img {
+      width:100%;
+      border-radius:10px;
+    }
+
+    .testimonial {
+      background: var(--secondary);
+      padding:15px;
+      border-radius:10px;
+    }
+
+    form { max-width:500px; margin:auto; }
+
+    input, textarea {
+      width:100%;
+      padding:10px;
+      margin:10px 0;
+      border-radius:8px;
+      border:1px solid #ccc;
+    }
+
+    button {
+      background: var(--accent);
+      color:white;
+      border:none;
+      padding:10px 20px;
+      border-radius:8px;
+      cursor:pointer;
+    }
+
+    footer {
+      background: var(--dark);
+      color:white;
+      text-align:center;
+      padding:20px;
+    }
+
+  .event-card img {
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  border-radius:10px;
+  margin-bottom:10px;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  transition: 0.3s;
+}
+
+.promo-card {
+  position:relative;
+  background: linear-gradient(135deg, #fff, #f7f2e8);
+  overflow:hidden;
+}
+
+.promo-card img {
+  width:100%;
+  height:150px;
+  object-fit:cover;
+  border-radius:10px;
+  margin-bottom:10px;
+}
+
+.badge {
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:red;
+  color:white;
+  padding:5px 10px;
+  font-size:12px;
+  border-radius:5px;
+}
+
+.price {
+  font-weight:bold;
+  color: var(--accent);
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: gray;
+  font-size:14px;
+}
+
+.testimonial-card {
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  text-align:left;
+  transition:0.3s;
+  position:relative;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.testimonial-header {
+  display:flex;
+  align-items:center;
+  margin-bottom:10px;
+}
+
+.testimonial-header img {
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  margin-right:10px;
+}
+
+.testimonial-name {
+  font-weight:bold;
+}
+
+.stars {
+  color:gold;
+  font-size:14px;
+}
+
+.quote {
+  font-style:italic;
+  color:#555;
+}
+
+
+.menu a{
+        display: block;
+        text-decoration: none;
+        color: black;
+        padding: 10px;
+        margin: 5px 0;
+        background-color: white;
+        border-radius: 5px;
+      }
+
+      .menu a:hover{
+        background-color: #ddd;
+      }
+      .menu-container{
+  position: relative;
+}
+
+.menu-btn{
+  font-size: 28px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: white;
+}
+
+.menu{
+  position: absolute;
+  top: 45px;
+  right: 0;
+  width: 200px;
+  background-color: lightgray;
+  padding: 10px;
+  display: none;
+  border-radius: 8px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ================= ABOUT ================= */
+
+#about{
+    min-height:100vh;
+    padding:120px 80px;
+    background:
+    linear-gradient(rgba(0,0,0,0.65),
+    rgba(0,0,0,0.65)),
+    url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.about-container{
+    width:100%;
+    max-width:1300px;
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+/* LEFT */
+
+.about-left{
+    color:white;
+    animation:fadeLeft 1.5s ease;
+}
+
+.about-tag{
+    display:inline-block;
+    padding:10px 20px;
+    background:rgba(255,255,255,0.15);
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:50px;
+    margin-bottom:20px;
+    backdrop-filter:blur(5px);
+}
+
+.about-left h2{
+    font-size:65px;
+    line-height:1.2;
+    margin-bottom:25px;
+    color:var(--secondary);
+}
+
+.about-left p{
+    font-size:18px;
+    line-height:1.9;
+    margin-bottom:20px;
+    color:#f1f1f1;
+}
+
+/* INFO */
+
+.about-info{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.info-box{
+    background:rgba(255,255,255,0.12);
+    padding:20px;
+    border-radius:18px;
+    min-width:160px;
+    backdrop-filter:blur(8px);
+    border:1px solid rgba(255,255,255,0.15);
+    transition:0.4s;
+}
+
+.info-box:hover{
+    transform:translateY(-10px);
+    background:rgba(255,255,255,0.2);
+}
+
+.info-box h3{
+    font-size:28px;
+    margin-bottom:8px;
+    color:var(--secondary);
+}
+
+.info-box span{
+    color:#eee;
+}
+
+/* BUTTON */
+
+.about-btn{
+    display:inline-block;
+    margin-top:35px;
+    padding:15px 35px;
+    background:var(--secondary);
+    color:var(--dark);
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:bold;
+    transition:0.4s;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+.about-btn:hover{
+    transform:translateY(-5px) scale(1.05);
+    background:white;
+}
+
+/* RIGHT */
+
+.about-right{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    animation:fadeRight 1.5s ease;
+}
+
+.big-img img{
+    height:350px;
+}
+
+.small-images{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.image-box{
+    overflow:hidden;
+    border-radius:25px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.35);
+}
+
+.image-box img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    transition:0.5s;
+}
+
+.image-box:hover img{
+    transform:scale(1.1);
+}
+
+/* ANIMATION */
+
+@keyframes fadeLeft{
+    from{
+        opacity:0;
+        transform:translateX(-80px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+@keyframes fadeRight{
+    from{
+        opacity:0;
+        transform:translateX(80px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+/* RESPONSIVE */
+
+@media(max-width:950px){
+
+    #about{
+        padding:100px 25px;
+    }
+
+    .about-container{
+        grid-template-columns:1fr;
+    }
+
+    .about-left h2{
+        font-size:45px;
+    }
+
+}
+
+/* ================= ABOUT US ================= */
+
+#aboutus{
+    position: relative;
+    padding:120px 70px;
+    overflow:hidden;
+
+    background:
+    linear-gradient(rgba(255,255,255,0.90),
+    rgba(255,255,255,0.92)),
+    url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    text-align:center;
+}
+
+/* efek blur bulat background */
+
+#aboutus::before{
+    content:"";
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    background:rgba(138,143,90,0.15);
+
+    border-radius:50%;
+
+    top:-200px;
+    left:-150px;
+
+    filter:blur(40px);
+}
+
+#aboutus::after{
+    content:"";
+    position:absolute;
+
+    width:400px;
+    height:400px;
+
+    background:rgba(233,221,200,0.7);
+
+    border-radius:50%;
+
+    bottom:-150px;
+    right:-100px;
+
+    filter:blur(40px);
+}
+
+/* JUDUL */
+
+#aboutus h2{
+    position:relative;
+    font-size:70px;
+    color:#3b3b2f;
+    margin-bottom:15px;
+    z-index:2;
+}
+
+#aboutus h2::after{
+    content:"";
+    display:block;
+
+    width:120px;
+    height:5px;
+
+    background:#8a8f5a;
+
+    margin:15px auto 0;
+    border-radius:10px;
+}
+
+#aboutus p{
+    position:relative;
+    font-size:20px;
+    color:#555;
+    margin-bottom:60px;
+    z-index:2;
+}
+
+/* CARD GRID */
+
+.team-grid{
+    position:relative;
+    z-index:2;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:35px;
+}
+
+/* CARD */
+
+.team-card{
+    position:relative;
+
+    background:rgba(255,255,255,0.88);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:35px;
+
+    padding:35px 25px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,0.08),
+    inset 0 1px 1px rgba(255,255,255,0.5);
+
+    transition:0.5s;
+
+    overflow:hidden;
+}
+
+/* garis atas */
+
+.team-card::before{
+    content:"";
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:8px;
+
+    background:linear-gradient(to right,#8a8f5a,#c7b89c);
+}
+
+/* hover */
+
+.team-card:hover{
+    transform:translateY(-15px) scale(1.03);
+
+    box-shadow:
+    0 25px 40px rgba(0,0,0,0.15);
+}
+
+/* FOTO */
+
+.team-card img{
+    width:150px;
+    height:150px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:6px solid #8a8f5a;
+
+    margin-bottom:20px;
+
+    transition:0.5s;
+}
+
+.team-card:hover img{
+    transform:scale(1.08) rotate(3deg);
+}
+
+/* NAMA */
+
+.team-card h3{
+    font-size:32px;
+    color:#343622;
+    margin-bottom:10px;
+}
+
+.team-card span{
+    font-size:18px;
+    color:#777;
+}
+
+/* BUTTON */
+
+.team-card a{
+    display:inline-block;
+
+    margin-top:22px;
+
+    padding:13px 28px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    background:linear-gradient(to right,#8a8f5a,#6f7445);
+
+    color:white;
+
+    font-weight:600;
+
+    transition:0.4s;
+}
+
+.team-card a:hover{
+    transform:scale(1.08);
+
+    background:linear-gradient(to right,#6f7445,#343622);
+}
+
+/* responsive */
+
+@media(max-width:900px){
+
+    #aboutus{
+        padding:100px 25px;
+    }
+
+    #aboutus h2{
+        font-size:50px;
+    }
+
+}
+
+.sejarah-section{
+    padding:120px 8%;
+    background:
+    radial-gradient(circle at top left,#d9d4bb,#f8f7f2);
+}
+
+.judul-sejarah{
+    text-align:center;
+    margin-bottom:80px;
+}
+
+.judul-sejarah span{
+    color:#8a8d53;
+    font-weight:600;
+    letter-spacing:3px;
+    text-transform:uppercase;
+}
+
+.judul-sejarah h2{
+    font-size:58px;
+    margin-top:10px;
+    color:#2f3422;
+}
+
+.garis{
+    width:120px;
+    height:4px;
+    background:#8a8d53;
+    margin:20px auto;
+    border-radius:50px;
+}
+
+.sejarah-wrapper{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:35px;
+}
+
+.card-sejarah{
+    background:rgba(255,255,255,.7);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,.5);
+    border-radius:30px;
+    padding:40px;
+    transition:.4s;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.card-sejarah::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:6px;
+    background:linear-gradient(
+    90deg,
+    #8a8d53,
+    #c8c39a);
+}
+
+.card-sejarah:hover{
+    transform:translateY(-15px);
+    box-shadow:0 25px 50px rgba(0,0,0,.15);
+}
+
+.icon{
+    width:90px;
+    height:90px;
+    border-radius:50%;
+    background:linear-gradient(
+    135deg,
+    #8a8d53,
+    #b8b47d);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:42px;
+    margin-bottom:25px;
+    color:white;
+}
+
+.card-sejarah h3{
+    font-size:32px;
+    color:#2f3422;
+    margin-bottom:15px;
+}
+
+.card-sejarah p,
+.card-sejarah li{
+    color:#555;
+    line-height:1.9;
+    font-size:17px;
+}
+
+.card-sejarah ul{
+    padding-left:20px;
+}
+
+.card-sejarah:hover .icon{
+    transform:rotate(10deg) scale(1.1);
+    transition:.4s;
+}
+
+#pilihEvent{
+    width:300px;
+    padding:12px;
+    border-radius:10px;
+    border:1px solid #8a8f5a;
+    font-size:16px;
+    margin-bottom:25px;
+}
+
+.detail-event{
+    display:none;
+    max-width:500px;
+    margin:auto;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    text-align:left;
+}
+
+.detail-event h3{
+    color:#8a8f5a;
+    margin-bottom:15px;
+}
+
+#event{
+    text-align:center;
+}
+
+#event select{
+    display:block;
+    margin:0 auto 25px auto;
+
+    width:300px;
+    max-width:90%;
+
+    padding:14px 20px;
+
+    border:2px solid #8a8f5a;
+    border-radius:12px;
+
+    background:white;
+    color:#333;
+
+    font-size:16px;
+    font-weight:500;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+#event select:hover{
+    box-shadow:0 8px 20px rgba(138,143,90,0.3);
+}
+
+#event select:focus{
+    outline:none;
+    box-shadow:0 8px 20px rgba(138,143,90,0.4);
+}
+
+#hasil{
+    width:500px;
+    max-width:90%;
+
+    margin:25px auto;
+
+    padding:30px;
+
+    background:white;
+
+    border-radius:20px;
+
+    border-top:6px solid #8a8f5a;
+
+    box-shadow:0 15px 35px rgba(0,0,0,0.12);
+
+    text-align:left;
+
+    opacity:0;
+    transform:translateY(20px);
+
+    transition:all 0.5s ease;
+}
+
+#hasil.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+#hasil h3{
+    text-align:center;
+
+    color:#8a8f5a;
+
+    font-size:28px;
+
+    margin-bottom:20px;
+}
+
+#hasil p{
+    margin:12px 0;
+
+    font-size:17px;
+
+    color:#555;
+
+    line-height:1.8;
+}
+
+#hasil b{
+    color:#333;
+}
+
+@media(max-width:768px){
+
+    #hasil{
+        width:95%;
+        padding:20px;
+    }
+
+    #event select{
+        width:95%;
+    }
+
+}
+
+.gallery-section{
+    padding:80px 8%;
+    background:#f8f7f2;
+}
+
+.gallery-section h2{
+    text-align:center;
+    font-size:48px;
+    color:#4a4a35;
+    margin-bottom:50px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+}
+
+.gallery-item{
+    position:relative;
+    overflow:hidden;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.gallery-item img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    display:block;
+    transition:0.5s;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.1);
+}
+
+.overlay{
+    position:absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    padding:25px;
+    background:linear-gradient(
+        transparent,
+        rgba(0,0,0,0.8)
+    );
+    color:white;
+}
+
+.overlay h3{
+    font-size:24px;
+}
+
+.interior{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    padding:100px 8%;
+    align-items:center;
+}
+
+.interior-text span{
+    color:#9a9b65;
+    font-weight:600;
+    font-size:18px;
+}
+
+.interior-text h2{
+    font-size:50px;
+    color:#404028;
+    margin:15px 0;
+}
+
+.interior-text p{
+    color:#666;
+    line-height:1.9;
+    margin-bottom:25px;
+}
+
+.fitur{
+    display:grid;
+    gap:12px;
+    margin-bottom:30px;
+    font-weight:500;
+}
+
+.btn-interior{
+    background:#9a9b65;
+    color:white;
+    padding:14px 28px;
+    text-decoration:none;
+    border-radius:40px;
+    display:inline-block;
+}
+
+.interior-gallery{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.interior-gallery img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    border-radius:20px;
+    transition:.4s;
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+}
+
+.interior-gallery img:hover{
+    transform:scale(1.05);
+}
+
+.interior-gallery img:nth-child(1){
+    grid-column:span 2;
+    height:320px;
+}
+
+  </style>
+</head>
+<body>
+
+
+<nav>
+
+  <div class="nav-links">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#aboutus">About Us</a>
+    <a href="#sejarah">Sejarah</a>
+    <a href="#galeri">Galeri</a>
+    <a href="#interior">Interior</a>
+    <a href="#event">Event</a>
+    <a href="#promo">Promo</a>
+    <a href="#testimoni">Testimoni</a>
+    <a href="#kontak">Kontak</a>
+    <a href="#kritik">Kritik</a>
+  </div>
+
+  <!-- MENU -->
+  <div class="menu-container">
+
+    <button class="menu-btn" onclick="toggleMenu()">
+      ☰
+    </button>
+
+    <div class="menu" id="menu">
+      <a href="../Login/index.html">Login</a>
+      <a href="#kontak">Contact</a>
+      <a href="#about">About</a>
+      <a href="#aboutus">About Us</a>
+      <a href="#home">Home</a>
+    </div>
+
+  </div>
+
+</nav>
+```
+
+
+  <!-- MENU -->
+  <div class="menu-container">
+
+
+    </div>
+
+  </div>
+
+</nav>
+
+  </div>
+
+</div>
+  
+</nav>
+
+<header id="home">
+  <h1>Tera<span>kota.</span></h1>
+  <p>Tempat Nongkrong Estetik & Nyaman</p>
+</header>
+
+<section id="about">
+
+    <div class="about-container">
+
+        <!-- KIRI -->
+        <div class="about-left">
+
+            <span class="about-tag">
+                ✦ Welcome To Terakota Cafe
+            </span>
+
+            <h2>
+                Tempat Nongkrong
+                <br>
+                Estetik & Nyaman
+            </h2>
+
+            <p>
+                Selamat datang di TeraCafe, tempat nongkrong modern dengan suasana hangat, nyaman, dan estetik yang dirancang untuk menemani setiap momen spesial Anda.
+            </p>
+
+            <p>
+                Kami menghadirkan kopi premium, makanan berkualitas, interior cozy, serta pelayanan terbaik agar setiap pengunjung merasakan pengalaman yang berbeda.
+            </p>
+
+            <!-- BOX INFO -->
+            <div class="about-info">
+
+                <div class="info-box">
+                    <h3>☕ 50+</h3>
+                    <span>Menu Premium</span>
+                </div>
+
+                <div class="info-box">
+                    <h3>⭐ 4.9</h3>
+                    <span>Rating Pelanggan</span>
+                </div>
+
+                <div class="info-box">
+                    <h3>🎶 Live</h3>
+                    <span>Music Weekend</span>
+                </div>
+
+            </div>
+
+            <a href="#galeri" class="about-btn">
+                Explore Cafe
+            </a>
+
+        </div>
+
+        <!-- KANAN -->
+        <div class="about-right">
+
+            <div class="image-box big-img">
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24">
+            </div>
+
+            <div class="small-images">
+
+                <div class="image-box">
+                    <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814">
+                </div>
+
+                <div class="image-box">
+                    <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="aboutus">
+
+    <h2>About Us</h2>
+
+    <p>
+        Halaman ini berisi anggota kelompok beserta link hasil pengerjaan masing-masing.
+    </p>
+
+    <div class="team-grid">
+
+        <!-- ANGGOTA 1 -->
+        <div class="team-card">
+
+            <img src="haqqi.jpg">
+
+            <h3>Anggota 1</h3>
+
+            <span>Muhammad Baidhol Haqqi</span>
+
+            <br>
+
+            <a href="homepageku.html">
+                Link Pengerjaan
+            </a>
+
+        </div>
+
+        <!-- ANGGOTA 2 -->
+        <div class="team-card">
+
+            <img src="deny.jpeg">
+
+            <h3>Anggota 2</h3>
+
+            <span>Ach Deny Firdaus Latif </span>
+
+            <br>
+
+            <a href="#">
+                Link Pengerjaan
+            </a>
+
+        </div>
+
+        <!-- ANGGOTA 3 -->
+        <div class="team-card">
+
+            <img src="hadi.jpeg">
+
+            <h3>Anggota 3</h3>
+
+            <span>Abdul Hadi Marzuqi</span>
+
+            <br>
+
+            <a href="#">
+                Link Pengerjaan
+            </a>
+
+        </div>
+
+        <!-- ANGGOTA 4 -->
+        <div class="team-card">
+
+            <img src="fauzan.jpeg">
+
+            <h3>Anggota 4</h3>
+
+            <span>Moch fauzan n.k</span>
+
+            <br>
+
+            <a href="#">
+                Link Pengerjaan
+            </a>
+
+        </div>
+
+        <!-- ANGGOTA 5 -->
+        <div class="team-card">
+
+            <img src="ziyad.jpeg">
+
+            <h3>Anggota 5</h3>
+
+            <span>Moh Ziyad Afandi</span>
+
+            <br>
+
+            <a href="#">
+                Link Pengerjaan
+            </a>
+
+        </div>
+
+        <!-- ANGGOTA 6 -->
+        <div class="team-card">
+
+            <img src="zaman.jpeg">
+
+            <h3>Anggota 6</h3>
+
+            <span>Fakhri Mahmudi Zaman </span>
+
+            <br>
+
+            <a href="#">
+                Link Pengerjaan
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="sejarah" class="sejarah-section">
+
+    <div class="judul-sejarah">
+        <span>☕ Cerita Kami</span>
+        <h2>Sejarah, Visi & Misi</h2>
+        <div class="garis"></div>
+    </div>
+
+    <div class="sejarah-wrapper">
+
+        <div class="card-sejarah">
+            <div class="icon">🏛</div>
+            <h3>Sejarah</h3>
+            <p>
+                Terakota Cafe berdiri sejak tahun 2020 sebagai tempat
+                berkumpul yang menghadirkan suasana hangat, kopi berkualitas,
+                dan pengalaman yang berkesan bagi setiap pengunjung.
+            </p>
+        </div>
+
+        <div class="card-sejarah">
+            <div class="icon">🎯</div>
+            <h3>Visi</h3>
+            <p>
+                Menjadi cafe pilihan utama yang dikenal karena kualitas,
+                kenyamanan, dan pelayanan terbaik.
+            </p>
+        </div>
+
+        <div class="card-sejarah">
+            <div class="icon">✨</div>
+            <h3>Misi</h3>
+            <ul>
+                <li>Menyajikan produk berkualitas.</li>
+                <li>Pelayanan ramah dan profesional.</li>
+                <li>Menciptakan suasana nyaman.</li>
+                <li>Mendukung komunitas lokal.</li>
+            </ul>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="galeri" class="gallery-section">
+    <h2>Galeri Cafe</h2>
+
+    <div class="gallery">
+
+        <div class="gallery-item">
+            <img src="suasana.jpg" alt="">
+            <div class="overlay">
+                <h3>Suasana Cafe</h3>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="birthday.jpg" alt="">
+            <div class="overlay">
+                <h3>Birthday Event</h3>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="favorit.jpg" alt="">
+            <div class="overlay">
+                <h3>Menu Favorit</h3>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="esport.jpg" alt="">
+            <div class="overlay">
+                <h3>Esport</h3>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="music.jpg" alt="">
+            <div class="overlay">
+                <h3>Live Music</h3>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="artis.jpg" alt="">
+            <div class="overlay">
+                <h3>Influencer</h3>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="interior" class="interior">
+    
+    <div class="interior-text">
+        <span>☕ Suasana Premium</span>
+        <h2>Interior Cafe yang Nyaman & Instagramable</h2>
+
+        <p>
+            Nikmati pengalaman bersantai dengan desain interior modern,
+            pencahayaan hangat, area yang nyaman untuk bekerja, berkumpul
+            bersama teman, maupun menikmati secangkir kopi favorit Anda.
+        </p>
+
+        <div class="fitur">
+            <div>✅ Free WiFi Cepat</div>
+            <div>✅ Area Indoor & Outdoor</div>
+            <div>✅ Spot Foto Instagramable</div>
+            <div>✅ Ruangan Ber-AC</div>
+        </div>
+
+        <a href="#kontak" class="btn-interior">
+            Reservasi Sekarang
+        </a>
+    </div>
+
+    <div class="interior-gallery">
+
+        <img src="areaaa.jpg" alt="">
+        <img src="ac.webp" alt="">
+        <img src="spot.png" alt="">
+
+    </div>
+
+</section>
+
+<select id="event" onchange="tampilEvent()">
+    <option value="">Pilih Event</option>
+    <option value="live">🎶 Live Music</option>
+    <option value="game">🎮 Game Night</option>
+    <option value="movie">🎬 Movie Night</option>
+    <option value="bazaar">🛍️ Mini Bazaar</option>
+</select>
+
+<div id="hasil"></div>
+
+<section id="promo">
+  <h2>Promo Cafe</h2>
+  <div class="grid">
+
+    <div class="card promo-card">
+      <span class="badge">🔥 HOT</span>
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+      <h3>Diskon Jumat</h3>
+      <p><span class="old-price">Rp30.000</span> <span class="price">Rp20.000</span></p>
+      <p>Hanya setiap hari Jumat setiap pelanggan yang sudah baca yasin</p>
+    </div>
+
+    <div class="card promo-card">
+      <span class="badge">🎉 PROMO</span>
+      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085">
+      <h3>Buy 1 Get 1</h3>
+      <p>Beli 1 kopi gratis 1 kopi</p>
+      <p>Jam 16.00 - 18.00</p>
+    </div>
+
+    <div class="card promo-card">
+      <span class="badge">💥 DEAL</span>
+      <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c">
+      <h3>Promo Mahasiswa</h3>
+      <p>Diskon 15% khusus pelajar yang merantau(wajib melihatkan ktp)</p>
+    </div>
+
+    <div class="card promo-card">
+      <span class="badge">⚡ FLASH</span>
+      <img src="https://images.unsplash.com/photo-1521305916504-4a1121188589">
+      <h3>Happy Hour</h3>
+      <p>Diskon semua menu</p>
+      <p>16.00 - 18.00</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="testimoni">
+  <h2>Testimoni Pelanggan</h2>
+  <div class="grid" id="testimoniList">
+
+    <div class="testimonial-card">
+      <div class="testimonial-header">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg">
+        <div>
+          <div class="testimonial-name">Andi</div>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+      <p class="quote">"Tempatnya nyaman banget!"</p>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-header">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg">
+        <div>
+          <div class="testimonial-name">Sari</div>
+          <div class="stars">★★★★★</div>
+        </div>
+      </div>
+      <p class="quote">"Kopi enak dan suasana cozy."</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="kontak">
+  <h2>Kontak</h2>
+
+  <div class="kontak-box">
+    <p><strong>Email:</strong> terakota@email.com</p>
+    <p><strong>Telp:</strong> 08123456789</p>
+    <p><strong>Alamat:</strong> Jl. Terakota No. 10, Surabaya</p>
+
+    <!-- Sosial Media -->
+    <div class="sosmed">
+      <a href="https://instagram.com/" target="_blank">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+
+      <a href="https://tiktok.com/" target="_blank">
+        <i class="fab fa-tiktok"></i> TikTok
+      </a>
+    </div>
+
+    <!-- Google Maps -->
+    <div class="map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31677.05212162846!2d112.69080162048341!3d-7.052512224914607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd805713e662463%3A0x71266cb4982f17da!2sNonki%20Cafe!5e0!3m2!1sid!2sid!4v1779168948479!5m2!1sid!2sid" 
+      width="600" 
+      height="450" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+    </div>
+  </div>
+</section>
+
+<section id="kritik">
+  <h2>Kritik & Saran</h2>
+  <form onsubmit="kirimPesan(event)">
+    <input type="text" id="nama" placeholder="Nama" required>
+    <textarea id="pesan" placeholder="Kritik dan Saran" required></textarea>
+    <button type="submit">Kirim</button>
+  </form>
+</section>
+
+<footer>
+  <p>© 2026 Terakota Cafe</p>
+</footer>
+
+<script>
+function kirimPesan(e){
+    e.preventDefault();
+
+    let nama = document.getElementById("nama").value;
+    let pesan = document.getElementById("pesan").value;
+
+    // Waktu sekarang
+    let sekarang = new Date();
+
+    let waktu = sekarang.toLocaleString("id-ID", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+    });
+
+    // Buat card baru
+    let testimoniBaru = document.createElement("div");
+    testimoniBaru.classList.add("testimonial");
+
+    testimoniBaru.innerHTML = `
+        <h3>${nama}</h3>
+        <small>${waktu}</small>
+        <p>"${pesan}"</p>
+    `;
+
+    // Tambahkan ke halaman
+    document.getElementById("testimoniList")
+    .appendChild(testimoniBaru);
+
+    // Reset form
+    document.getElementById("nama").value = "";
+    document.getElementById("pesan").value = "";
+}
+</script>
+
+<script>
+
+function tampilEvent(){
+
+    let event = document.getElementById("event").value;
+    let hasil = document.getElementById("hasil");
+
+    hasil.classList.remove("show");
+
+    setTimeout(() => {
+
+        if(event == "live"){
+            hasil.innerHTML = `
+            <h3>🎶 Live Music</h3>
+            <p><b>Hari:</b> Sabtu</p>
+            <p><b>Jam:</b> 19.00 - 22.00 WIB</p>
+            <p><b>Tempat:</b> Terakota Cafe</p>
+            <p><b>Guest Star:</b> Beni & Friends</p>
+            `;
+        }
+
+        else if(event == "game"){
+            hasil.innerHTML = `
+            <h3>🎮 Game Night</h3>
+            <p><b>Hari:</b> Jumat</p>
+            <p><b>Jam:</b> 20.00 - 23.00 WIB</p>
+            <p><b>Tempat:</b> Indoor Area</p>
+            <p><b>Guest Star:</b> Komunitas Gamer Surabaya</p>
+            `;
+        }
+
+        else if(event == "movie"){
+            hasil.innerHTML = `
+            <h3>🎬 Movie Night</h3>
+            <p><b>Hari:</b> Minggu</p>
+            <p><b>Jam:</b> 19.00 - 22.30 WIB</p>
+            <p><b>Tempat:</b> Rooftop Cafe</p>
+            <p><b>Guest Star:</b> Special Screening</p>
+            `;
+        }
+
+        else if(event == "bazaar"){
+            hasil.innerHTML = `
+            <h3>🛍️ Mini Bazaar</h3>
+            <p><b>Hari:</b> Minggu Pertama Setiap Bulan</p>
+            <p><b>Jam:</b> 09.00 - 16.00 WIB</p>
+            <p><b>Tempat:</b> Halaman Cafe</p>
+            <p><b>Guest Star:</b> UMKM Lokal</p>
+            `;
+        }
+
+        hasil.classList.add("show");
+
+    }, 150);
+
+}
+
+</script>
+</body>
+</html>
