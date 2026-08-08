@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Homepageku</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#FFD700,#FFF176);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+}
+
+.container{
+    width:900px;
+    background:white;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+}
+
+.header{
+    background:linear-gradient(135deg,#6F4E37,#8D6E63);
+    color:white;
+    text-align:center;
+    padding:40px;
+}
+
+.header h1{
+    font-size:40px;
+}
+
+.profile{
+    text-align:center;
+    padding:30px;
+}
+
+.profile img{
+    width:220px;
+    height:220px;
+    object-fit:cover;
+    border-radius:50%;
+    border:6px solid #6F4E37;
+    margin-top:-80px;
+    background:white;
+}
+
+.profile h2{
+    margin-top:15px;
+    color:#333;
+}
+
+.profile p{
+    margin:8px 0;
+    color:#666;
+    font-size:17px;
+}
+
+.project{
+    padding:40px;
+    background:#fafafa;
+}
+
+.project h2{
+    text-align:center;
+    color:#6F4E37;
+    margin-bottom:25px;
+}
+
+.menu{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:15px;
+}
+
+.item{
+    background:white;
+    padding:15px;
+    border-radius:10px;
+    text-align:center;
+    font-weight:bold;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+.link-area{
+    text-align:center;
+    margin-top:35px;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 35px;
+    background:#6F4E37;
+    color:white;
+    text-decoration:none;
+    border-radius:50px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.btn:hover{
+    background:#4E342E;
+}
+
+.footer{
+    text-align:center;
+    padding:20px;
+    background:#6F4E37;
+    color:white;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Selamat Datang di Homepageku</h1>
+    </div>
+
+    <div class="profile">
+        <img src="haqqi.jpg" alt="Foto Profil">
+
+        <h2>Muhammad Baidhol Haqqi</h2>
+
+        <p><b>NIM :</b> 250411100102</p>
+        <p><b>Kelas :</b> Dasar Pemrograman Web A</p>
+    </div>
+
+    <div class="project">
+
+        <h2>☕ TUGAS PROJECT WEBSITE CAFE ☕</h2>
+
+        <div class="menu">
+            <div class="item">🏠 Home</div>
+            <div class="item">ℹ️ About Cafe</div>
+            <div class="item">📖 Sejarah Cafe</div>
+            <div class="item">🎯 Visi Misi</div>
+            <div class="item">🖼️ Galeri Cafe</div>
+            <div class="item">🏡 Interior Cafe</div>
+            <div class="item">🎉 Event Cafe</div>
+            <div class="item">🔥 Promo Cafe</div>
+            <div class="item">⭐ Testimoni Cafe</div>
+            <div class="item">📞 Kontak Cafe</div>
+        </div>
+
+        <div class="link-area">
+            <a href="terakopi.html" class="btn">
+                ☕ Lihat Hasil Pengerjaan Website Cafe
+            </a>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        © 2025 Muhammad Baidhol Haqqi
+    </div>
+
+</div>
+
+</body>
+</html>
